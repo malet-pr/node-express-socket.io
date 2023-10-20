@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
@@ -7,7 +8,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const uri = "mongodb+srv://maletqpr:prueba@cluster0.oi2am1z.mongodb.net/nodesoketmongo";
+const uri = process.env.MONGO_URI;
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
